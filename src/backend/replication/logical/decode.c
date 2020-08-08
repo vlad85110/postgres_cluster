@@ -866,7 +866,9 @@ DecodeInsert(LogicalDecodingContext *ctx, XLogRecordBuffer *buf)
 
 	change->data.tp.clear_toast_afterwards = true;
 
-	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr, change);
+	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr,
+							 change,
+							 xlrec->flags & XLH_INSERT_ON_TOAST_RELATION);
 }
 
 /*
@@ -950,7 +952,8 @@ DecodeUpdate(LogicalDecodingContext *ctx, XLogRecordBuffer *buf)
 
 	change->data.tp.clear_toast_afterwards = true;
 
-	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr, change);
+	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr,
+							 change, false);
 }
 
 /*
@@ -1007,7 +1010,8 @@ DecodeDelete(LogicalDecodingContext *ctx, XLogRecordBuffer *buf)
 
 	change->data.tp.clear_toast_afterwards = true;
 
-	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr, change);
+	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr,
+							 change, false);
 }
 
 /*
@@ -1043,7 +1047,7 @@ DecodeTruncate(LogicalDecodingContext *ctx, XLogRecordBuffer *buf)
 	memcpy(change->data.truncate.relids, xlrec->relids,
 		   xlrec->nrelids * sizeof(Oid));
 	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r),
-							 buf->origptr, change);
+							 buf->origptr, change, false);
 }
 
 /*
@@ -1150,7 +1154,7 @@ DecodeMultiInsert(LogicalDecodingContext *ctx, XLogRecordBuffer *buf)
 			change->data.tp.clear_toast_afterwards = false;
 
 		ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r),
-								 buf->origptr, change);
+								 buf->origptr, change, false);
 
 		/* move to the next xl_multi_insert_tuple entry */
 		data += datalen;
@@ -1188,7 +1192,8 @@ DecodeSpecConfirm(LogicalDecodingContext *ctx, XLogRecordBuffer *buf)
 
 	change->data.tp.clear_toast_afterwards = true;
 
-	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr, change);
+	ReorderBufferQueueChange(ctx->reorder, XLogRecGetXid(r), buf->origptr,
+							 change, false);
 }
 
 
