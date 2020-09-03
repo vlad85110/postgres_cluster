@@ -5977,7 +5977,7 @@ describeSubscriptions(const char *pattern, bool verbose)
 	PGresult   *res;
 	printQueryOpt myopt = pset.popt;
 	static const bool translate_columns[] = {false, false, false, false,
-	false, false};
+	false, false, false, false};
 
 	if (pset.sversion < 100000)
 	{
@@ -6003,6 +6003,14 @@ describeSubscriptions(const char *pattern, bool verbose)
 
 	if (verbose)
 	{
+		/* Binary mode and streaming are only supported in v14 and higher */
+		if (pset.sversion >= 140000)
+			appendPQExpBuffer(&buf,
+							  ", subbinary AS \"%s\"\n"
+							  ", substream AS \"%s\"\n",
+							  gettext_noop("Binary"),
+							  gettext_noop("Streaming"));
+
 		appendPQExpBuffer(&buf,
 						  ",  subsynccommit AS \"%s\"\n"
 						  ",  subconninfo AS \"%s\"\n",
