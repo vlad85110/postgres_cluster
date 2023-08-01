@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/src/interfaces/ecpg/pgtypeslib/Makefile

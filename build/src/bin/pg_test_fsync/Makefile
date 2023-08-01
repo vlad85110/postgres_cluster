@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/src/bin/pg_test_fsync/Makefile

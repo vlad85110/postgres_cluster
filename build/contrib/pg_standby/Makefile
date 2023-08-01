@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/contrib/pg_standby/Makefile

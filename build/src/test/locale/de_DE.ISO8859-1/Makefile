@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/src/test/locale/de_DE.ISO8859-1/Makefile

@@ -1,0 +1,1482 @@
+make[1]: вход в каталог «/home/vlad/postgres_cluster/build»
+make -C src install
+make[2]: вход в каталог «/home/vlad/postgres_cluster/build/src»
+make -C common install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 644  libpgcommon.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgcommon.a'
+/usr/bin/install -c -m 644  libpgcommon_shlib.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgcommon_shlib.a'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C port install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 644  libpgport.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgport.a'
+/usr/bin/install -c -m 644  libpgport_shlib.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgport_shlib.a'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C timezone install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/timezone»
+make -C ../../src/port all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../src/common all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+./zic -d '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezone'  /home/vlad/postgres_cluster/build/../src/timezone/data/tzdata.zi
+make -C tznames install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/timezone/tznames»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezonesets'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/timezone/tznames/Africa.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/America.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Antarctica.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Asia.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Atlantic.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Australia.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Etc.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Europe.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Indian.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Pacific.txt '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezonesets'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/timezone/tznames/Default /home/vlad/postgres_cluster/build/../src/timezone/tznames/Australia /home/vlad/postgres_cluster/build/../src/timezone/tznames/India '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezonesets'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/timezone/tznames»
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/timezone»
+make -C backend install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend»
+make -C ../../src/port all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../src/common all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C catalog distprep generated-header-symlinks
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make[4]: Цель «distprep» не требует выполнения команд.
+make[4]: Цель «generated-header-symlinks» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make -C utils distprep generated-header-symlinks
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils»
+make[4]: Цель «distprep» не требует выполнения команд.
+make[4]: Цель «generated-header-symlinks» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils»
+make -C access all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access»
+make -C brin all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/brin»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/brin»
+make -C common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/common»
+make -C gin all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/gin»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/gin»
+make -C gist all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/gist»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/gist»
+make -C hash all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/hash»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/hash»
+make -C heap all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/heap»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/heap»
+make -C index all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/index»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/index»
+make -C nbtree all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/nbtree»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/nbtree»
+make -C rmgrdesc all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/rmgrdesc»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/rmgrdesc»
+make -C spgist all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/spgist»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/spgist»
+make -C table all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/table»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/table»
+make -C tablesample all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/tablesample»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/tablesample»
+make -C transam all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/transam»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/transam»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access»
+make -C bootstrap all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/bootstrap»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/bootstrap»
+make -C catalog all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make -C parser all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/parser»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/parser»
+make -C commands all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/commands»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/commands»
+make -C executor all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/executor»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/executor»
+make -C foreign all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/foreign»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/foreign»
+make -C lib all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/lib»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/lib»
+make -C libpq all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/libpq»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/libpq»
+make -C main all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/main»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/main»
+make -C nodes all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/nodes»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/nodes»
+make -C optimizer all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer»
+make -C geqo all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/geqo»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/geqo»
+make -C path all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/path»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/path»
+make -C plan all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/plan»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/plan»
+make -C prep all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/prep»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/prep»
+make -C util all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/util»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/util»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer»
+make -C partitioning all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/partitioning»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/partitioning»
+make -C port all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/port»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/port»
+make -C postmaster all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/postmaster»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/postmaster»
+make -C regex all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/regex»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/regex»
+make -C replication all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/replication»
+make -C logical all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/replication/logical»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/replication/logical»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/replication»
+make -C rewrite all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/rewrite»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/rewrite»
+make -C statistics all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/statistics»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/statistics»
+make -C storage all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage»
+make -C buffer all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/buffer»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/buffer»
+make -C file all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/file»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/file»
+make -C freespace all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/freespace»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/freespace»
+make -C ipc all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/ipc»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/ipc»
+make -C large_object all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/large_object»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/large_object»
+make -C lmgr all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/lmgr»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/lmgr»
+make -C page all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/page»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/page»
+make -C smgr all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/smgr»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/smgr»
+make -C sync all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/sync»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/sync»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage»
+make -C tcop all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/tcop»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/tcop»
+make -C tsearch all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/tsearch»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/tsearch»
+make -C utils all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils»
+make -C adt all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/adt»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/adt»
+make -C cache all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/cache»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/cache»
+make -C error all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/error»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/error»
+make -C fmgr all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/fmgr»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/fmgr»
+make -C hash all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/hash»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/hash»
+make -C init all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/init»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/init»
+make -C mb all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb»
+make -C misc all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/misc»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/misc»
+make -C mmgr all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mmgr»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mmgr»
+make -C resowner all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/resowner»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/resowner»
+make -C sort all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/sort»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/sort»
+make -C time all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/time»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/time»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils»
+make -C ../../src/timezone all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/timezone»
+make -C ../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/timezone»
+make -C jit all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/jit»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/jit»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+/usr/bin/install -c  postgres '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/postgres'
+ln -s postgres '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/postmaster'
+make -C access install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access»
+make -C brin install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/brin»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/brin»
+make -C common install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/common»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/common»
+make -C gin install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/gin»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/gin»
+make -C gist install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/gist»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/gist»
+make -C hash install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/hash»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/hash»
+make -C heap install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/heap»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/heap»
+make -C index install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/index»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/index»
+make -C nbtree install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/nbtree»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/nbtree»
+make -C rmgrdesc install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/rmgrdesc»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/rmgrdesc»
+make -C spgist install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/spgist»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/spgist»
+make -C table install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/table»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/table»
+make -C tablesample install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/tablesample»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/tablesample»
+make -C transam install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/access/transam»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access/transam»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/access»
+make -C bootstrap install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/bootstrap»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/bootstrap»
+make -C catalog install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make -C parser install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/parser»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/parser»
+make -C commands install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/commands»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/commands»
+make -C executor install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/executor»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/executor»
+make -C foreign install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/foreign»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/foreign»
+make -C lib install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/lib»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/lib»
+make -C libpq install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/libpq»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/libpq»
+make -C main install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/main»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/main»
+make -C nodes install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/nodes»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/nodes»
+make -C optimizer install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer»
+make -C geqo install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/geqo»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/geqo»
+make -C path install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/path»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/path»
+make -C plan install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/plan»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/plan»
+make -C prep install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/prep»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/prep»
+make -C util install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/optimizer/util»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer/util»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/optimizer»
+make -C partitioning install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/partitioning»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/partitioning»
+make -C port install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/port»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/port»
+make -C postmaster install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/postmaster»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/postmaster»
+make -C regex install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/regex»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/regex»
+make -C replication install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/replication»
+make -C logical install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/replication/logical»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/replication/logical»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/replication»
+make -C rewrite install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/rewrite»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/rewrite»
+make -C statistics install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/statistics»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/statistics»
+make -C storage install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage»
+make -C buffer install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/buffer»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/buffer»
+make -C file install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/file»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/file»
+make -C freespace install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/freespace»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/freespace»
+make -C ipc install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/ipc»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/ipc»
+make -C large_object install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/large_object»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/large_object»
+make -C lmgr install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/lmgr»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/lmgr»
+make -C page install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/page»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/page»
+make -C smgr install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/smgr»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/smgr»
+make -C sync install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/storage/sync»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage/sync»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/storage»
+make -C tcop install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/tcop»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/tcop»
+make -C tsearch install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/tsearch»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/tsearch»
+make -C utils install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils»
+make -C adt install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/adt»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/adt»
+make -C cache install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/cache»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/cache»
+make -C error install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/error»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/error»
+make -C fmgr install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/fmgr»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/fmgr»
+make -C hash install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/hash»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/hash»
+make -C init install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/init»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/init»
+make -C mb install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb»
+make -C misc install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/misc»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/misc»
+make -C mmgr install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mmgr»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mmgr»
+make -C resowner install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/resowner»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/resowner»
+make -C sort install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/sort»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/sort»
+make -C time install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/time»
+make[5]: Цель «install» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/time»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils»
+make -C ../../src/timezone install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/timezone»
+make -C ../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+./zic -d '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezone'  /home/vlad/postgres_cluster/build/../src/timezone/data/tzdata.zi
+make -C tznames install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/timezone/tznames»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezonesets'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/timezone/tznames/Africa.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/America.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Antarctica.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Asia.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Atlantic.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Australia.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Etc.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Europe.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Indian.txt /home/vlad/postgres_cluster/build/../src/timezone/tznames/Pacific.txt '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezonesets'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/timezone/tznames/Default /home/vlad/postgres_cluster/build/../src/timezone/tznames/Australia /home/vlad/postgres_cluster/build/../src/timezone/tznames/India '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/timezonesets'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/timezone/tznames»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/timezone»
+make -C jit install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/jit»
+make[4]: Цель «install» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/jit»
+make -C catalog install-data
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/catalog»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+/usr/bin/install -c -m 644 `for f in ./postgres.bki /home/vlad/postgres_cluster/build/../src/backend/catalog/postgres.bki; do test -r $f && echo $f && break; done` '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/postgres.bki'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/catalog/system_views.sql '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/system_views.sql'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/catalog/information_schema.sql '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/information_schema.sql'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/catalog/sql_features.txt '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/sql_features.txt'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/catalog»
+make -C tsearch install-data
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/tsearch»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/tsearch_data'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/synonym_sample.syn /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/thesaurus_sample.ths /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/hunspell_sample.affix /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/ispell_sample.affix /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/ispell_sample.dict /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/hunspell_sample_long.affix /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/hunspell_sample_long.dict /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/hunspell_sample_num.affix /home/vlad/postgres_cluster/build/../src/backend/tsearch/dicts/hunspell_sample_num.dict '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/tsearch_data/'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/tsearch»
+make -C utils install-data
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/utils/errcodes.txt '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/errcodes.txt'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils»
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/libpq/pg_hba.conf.sample '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/pg_hba.conf.sample'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/libpq/pg_ident.conf.sample '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/pg_ident.conf.sample'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/backend/utils/misc/postgresql.conf.sample '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/postgresql.conf.sample'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend»
+make -C backend/utils/mb/conversion_procs install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs»
+make -C cyrillic_and_mic install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/cyrillic_and_mic»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  cyrillic_and_mic.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/cyrillic_and_mic.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/cyrillic_and_mic»
+make -C euc_cn_and_mic install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_cn_and_mic»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  euc_cn_and_mic.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/euc_cn_and_mic.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_cn_and_mic»
+make -C euc_jp_and_sjis install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_jp_and_sjis»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  euc_jp_and_sjis.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/euc_jp_and_sjis.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_jp_and_sjis»
+make -C euc_kr_and_mic install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_kr_and_mic»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  euc_kr_and_mic.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/euc_kr_and_mic.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_kr_and_mic»
+make -C euc_tw_and_big5 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_tw_and_big5»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  euc_tw_and_big5.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/euc_tw_and_big5.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc_tw_and_big5»
+make -C latin2_and_win1250 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/latin2_and_win1250»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  latin2_and_win1250.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/latin2_and_win1250.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/latin2_and_win1250»
+make -C latin_and_mic install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/latin_and_mic»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  latin_and_mic.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/latin_and_mic.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/latin_and_mic»
+make -C utf8_and_big5 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_big5»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_big5.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_big5.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_big5»
+make -C utf8_and_cyrillic install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_cyrillic»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_cyrillic.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_cyrillic.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_cyrillic»
+make -C utf8_and_euc_cn install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_cn»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_euc_cn.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_euc_cn.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_cn»
+make -C utf8_and_euc_jp install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_jp»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_euc_jp.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_euc_jp.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_jp»
+make -C utf8_and_euc_kr install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_kr»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_euc_kr.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_euc_kr.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_kr»
+make -C utf8_and_euc_tw install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_tw»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_euc_tw.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_euc_tw.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc_tw»
+make -C utf8_and_gb18030 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_gb18030»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_gb18030.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_gb18030.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_gb18030»
+make -C utf8_and_gbk install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_gbk»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_gbk.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_gbk.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_gbk»
+make -C utf8_and_iso8859 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_iso8859»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_iso8859.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_iso8859.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_iso8859»
+make -C utf8_and_iso8859_1 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_iso8859_1»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_iso8859_1.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_iso8859_1.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_iso8859_1»
+make -C utf8_and_johab install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_johab»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_johab.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_johab.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_johab»
+make -C utf8_and_sjis install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_sjis»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_sjis.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_sjis.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_sjis»
+make -C utf8_and_win install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_win»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_win.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_win.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_win»
+make -C utf8_and_uhc install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_uhc»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_uhc.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_uhc.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_uhc»
+make -C utf8_and_euc2004 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc2004»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_euc2004.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_euc2004.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_euc2004»
+make -C utf8_and_sjis2004 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_sjis2004»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  utf8_and_sjis2004.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/utf8_and_sjis2004.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/utf8_and_sjis2004»
+make -C euc2004_sjis2004 install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc2004_sjis2004»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  euc2004_sjis2004.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/euc2004_sjis2004.so'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs/euc2004_sjis2004»
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/utils/mb/conversion_procs»
+make -C backend/snowball install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/snowball»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/tsearch_data'
+/usr/bin/install -c -m 755  dict_snowball.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/dict_snowball.so'
+/usr/bin/install -c -m 644 snowball_create.sql '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/snowball»
+make -C include install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/include»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/libpq' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal/libpq'
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/access '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/bootstrap '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/catalog '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/commands '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/common '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/datatype '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/executor '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/fe_utils '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/foreign '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/jit '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/lib '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/libpq '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/mb '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/nodes '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/optimizer '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/parser '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/partitioning '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/postmaster '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/regex '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/replication '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/rewrite '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/statistics '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/storage '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/tcop '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/snowball '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/snowball/libstemmer '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/tsearch '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/tsearch/dicts '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/utils '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/atomics '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/win32 '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/win32_msvc '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/win32_msvc/sys '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/win32/arpa '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/win32/netinet '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/port/win32/sys '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/portability
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/postgres_ext.h   '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/libpq/libpq-fs.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/libpq'
+/usr/bin/install -c -m 644 pg_config.h     '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 pg_config_ext.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 pg_config_os.h  '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/pg_config_manual.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/c.h            '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/port.h         '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/postgres_fe.h  '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/include/libpq/pqcomm.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal/libpq'
+/usr/bin/install -c -m 644 pg_config.h     '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'
+/usr/bin/install -c -m 644 pg_config_ext.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'
+/usr/bin/install -c -m 644 pg_config_os.h  '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'
+/usr/bin/install -c -m 644 utils/errcodes.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server/utils'
+/usr/bin/install -c -m 644 utils/fmgroids.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server/utils'
+/usr/bin/install -c -m 644 utils/fmgrprotos.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server/utils'
+cp /home/vlad/postgres_cluster/build/../src/include/*.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/
+for dir in access bootstrap catalog commands common datatype executor fe_utils foreign jit lib libpq mb nodes optimizer parser partitioning postmaster regex replication rewrite statistics storage tcop snowball snowball/libstemmer tsearch tsearch/dicts utils port port/atomics port/win32 port/win32_msvc port/win32_msvc/sys port/win32/arpa port/win32/netinet port/win32/sys portability; do \
+  cp /home/vlad/postgres_cluster/build/../src/include/$dir/*.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/$dir/ || exit; \
+done
+for file in catalog/schemapg.h catalog/pg_*_d.h parser/gram.h storage/lwlocknames.h utils/probes.h; do \
+  cp $file '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/$file || exit; \
+done
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server' && chmod 644 *.h
+for dir in access bootstrap catalog commands common datatype executor fe_utils foreign jit lib libpq mb nodes optimizer parser partitioning postmaster regex replication rewrite statistics storage tcop snowball snowball/libstemmer tsearch tsearch/dicts utils port port/atomics port/win32 port/win32_msvc port/win32_msvc/sys port/win32/arpa port/win32/netinet port/win32/sys portability; do \
+  cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'/$dir || exit; \
+  chmod 644 *.h || exit; \
+done
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/include»
+make -C interfaces install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces»
+make -C libpq install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig' 
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+/usr/bin/install -c -m 755  libpq.so.5.13 '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpq.so.5.13'
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libpq.so.5 && \
+ln -s libpq.so.5.13 libpq.so.5
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libpq.so && \
+ln -s libpq.so.5.13 libpq.so
+/usr/bin/install -c -m 644  libpq.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpq.a'
+/usr/bin/install -c -m 644 libpq.pc '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig/libpq.pc'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/libpq/libpq-fe.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/libpq/libpq-events.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/libpq/libpq-int.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/libpq/pqexpbuffer.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/internal'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/libpq/pg_service.conf.sample '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/pg_service.conf.sample'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ecpg install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg»
+make -C include install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/include»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/informix/esql'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/ecpgerrno.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/ecpglib.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/ecpgtype.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/sqlca.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/sql3types.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/ecpg_informix.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/pgtypes_error.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/pgtypes_numeric.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/pgtypes_timestamp.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/pgtypes_date.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/pgtypes_interval.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/pgtypes.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/sqlda.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/sqlda-compat.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/sqlda-native.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/datetime.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/decimal.h /home/vlad/postgres_cluster/build/../src/interfaces/ecpg/include/sqltypes.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/informix/esql/'
+/usr/bin/install -c -m 644 ../../../../src/interfaces/ecpg/include/ecpg_config.h '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/include»
+make -C pgtypeslib install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+make -C ../../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig' 
+/usr/bin/install -c -m 755  libpgtypes.so.3.13 '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgtypes.so.3.13'
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libpgtypes.so.3 && \
+ln -s libpgtypes.so.3.13 libpgtypes.so.3
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libpgtypes.so && \
+ln -s libpgtypes.so.3.13 libpgtypes.so
+/usr/bin/install -c -m 644  libpgtypes.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgtypes.a'
+/usr/bin/install -c -m 644 libpgtypes.pc '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig/libpgtypes.pc'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+make -C ecpglib install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/ecpglib»
+make -C ../../../../src/interfaces/libpq all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[7]: Цель «all» не требует выполнения команд.
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[7]: Цель «all» не требует выполнения команд.
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../../src/interfaces/ecpg/pgtypeslib all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+make -C ../../../../src/port all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[7]: Цель «all» не требует выполнения команд.
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../../src/common all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[7]: Цель «all» не требует выполнения команд.
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig' 
+/usr/bin/install -c -m 755  libecpg.so.6.13 '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libecpg.so.6.13'
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libecpg.so.6 && \
+ln -s libecpg.so.6.13 libecpg.so.6
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libecpg.so && \
+ln -s libecpg.so.6.13 libecpg.so
+/usr/bin/install -c -m 644  libecpg.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libecpg.a'
+/usr/bin/install -c -m 644 libecpg.pc '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig/libecpg.pc'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/ecpglib»
+make -C compatlib install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/compatlib»
+make -C ../../../../src/interfaces/ecpg/ecpglib all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/ecpglib»
+make -C ../../../../src/interfaces/libpq all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[8]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[8]: Цель «all» не требует выполнения команд.
+make[8]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[8]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[8]: Цель «all» не требует выполнения команд.
+make[8]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../../src/interfaces/ecpg/pgtypeslib all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+make -C ../../../../src/port all
+make[8]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[8]: Цель «all» не требует выполнения команд.
+make[8]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../../src/common all
+make[8]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[8]: Цель «all» не требует выполнения команд.
+make[8]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/ecpglib»
+make -C ../../../../src/interfaces/ecpg/pgtypeslib all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+make -C ../../../../src/port all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[7]: Цель «all» не требует выполнения команд.
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../../src/common all
+make[7]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[7]: Цель «all» не требует выполнения команд.
+make[7]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/pgtypeslib»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig' 
+/usr/bin/install -c -m 755  libecpg_compat.so.3.13 '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libecpg_compat.so.3.13'
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libecpg_compat.so.3 && \
+ln -s libecpg_compat.so.3.13 libecpg_compat.so.3
+cd '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib' && \
+rm -f libecpg_compat.so && \
+ln -s libecpg_compat.so.3.13 libecpg_compat.so
+/usr/bin/install -c -m 644  libecpg_compat.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libecpg_compat.a'
+/usr/bin/install -c -m 644 libecpg_compat.pc '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pkgconfig/libecpg_compat.pc'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/compatlib»
+make -C preproc install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/preproc»
+make -C ../../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  ecpg '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg/preproc»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/ecpg»
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces»
+make -C backend/replication/libpqwalreceiver install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/replication/libpqwalreceiver»
+make -C ../../../../src/interfaces/libpq all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  libpqwalreceiver.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpqwalreceiver.so'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/replication/libpqwalreceiver»
+make -C backend/replication/pgoutput install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/backend/replication/pgoutput»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  pgoutput.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgoutput.so'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/backend/replication/pgoutput»
+make -C fe_utils install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 644  libpgfeutils.a '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/libpgfeutils.a'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+make -C bin install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin»
+make -C initdb install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/initdb»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  initdb '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/initdb'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/initdb»
+make -C pg_archivecleanup install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_archivecleanup»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_archivecleanup '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_archivecleanup'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_archivecleanup»
+make -C pg_basebackup install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_basebackup»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_basebackup '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_basebackup'
+/usr/bin/install -c  pg_receivewal '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_receivewal'
+/usr/bin/install -c  pg_recvlogical '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_recvlogical'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_basebackup»
+make -C pg_checksums install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_checksums»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_checksums '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_checksums'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_checksums»
+make -C pg_config install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_config»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c -m 755 pg_config '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_config'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_config»
+make -C pg_controldata install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_controldata»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_controldata '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_controldata'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_controldata»
+make -C pg_ctl install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_ctl»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_ctl '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_ctl'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_ctl»
+make -C pg_dump install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_dump»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_dump '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/pg_dump
+/usr/bin/install -c  pg_restore '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/pg_restore
+/usr/bin/install -c  pg_dumpall '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/pg_dumpall
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_dump»
+make -C pg_resetwal install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_resetwal»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_resetwal '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_resetwal'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_resetwal»
+make -C pg_rewind install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_rewind»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_rewind '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_rewind'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_rewind»
+make -C pg_test_fsync install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_test_fsync»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_test_fsync '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_test_fsync'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_test_fsync»
+make -C pg_test_timing install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_test_timing»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_test_timing '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_test_timing'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_test_timing»
+make -C pg_upgrade install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_upgrade»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_upgrade '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_upgrade'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_upgrade»
+make -C pg_verifybackup install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_verifybackup»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_verifybackup '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_verifybackup'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_verifybackup»
+make -C pg_waldump install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pg_waldump»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pg_waldump '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pg_waldump'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pg_waldump»
+make -C pgbench install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/pgbench»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  pgbench '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/pgbench'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/pgbench»
+make -C psql install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/psql»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share'
+/usr/bin/install -c  psql '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin/psql'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/bin/psql/psqlrc.sample '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/psqlrc.sample'
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/psql»
+make -C scripts install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/bin/scripts»
+make -C ../../../src/interfaces/libpq all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[6]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[6]: Цель «all» не требует выполнения команд.
+make[6]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../src/fe_utils all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/fe_utils»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/fe_utils»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'
+/usr/bin/install -c  createdb   '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/createdb
+/usr/bin/install -c  dropdb     '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/dropdb
+/usr/bin/install -c  createuser '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/createuser
+/usr/bin/install -c  dropuser   '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/dropuser
+/usr/bin/install -c  clusterdb  '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/clusterdb
+/usr/bin/install -c  vacuumdb   '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/vacuumdb
+/usr/bin/install -c  reindexdb  '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/reindexdb
+/usr/bin/install -c  pg_isready '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/bin'/pg_isready
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin/scripts»
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/bin»
+make -C pl install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/pl»
+make -C plpgsql install
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/pl/plpgsql»
+make -C src install
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/pl/plpgsql/src»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib'
+/usr/bin/install -c -m 755  plpgsql.so '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/plpgsql.so'
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/extension'
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/pl/plpgsql/src/plpgsql.control /home/vlad/postgres_cluster/build/../src/pl/plpgsql/src/plpgsql--1.0.sql '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/share/extension/'
+/usr/bin/install -c -m 644 '/home/vlad/postgres_cluster/build/../src/pl/plpgsql/src/plpgsql.h' '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/include/server'
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/pl/plpgsql/src»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/pl/plpgsql»
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/pl»
+make -C makefiles install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/makefiles»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/makefiles'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/makefiles/pgxs.mk '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/makefiles/'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/makefiles»
+make -C test/regress install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/test/regress»
+make -C ../../../src/port all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make -C ../../../contrib/spi
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/contrib/spi»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/contrib/spi»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/test/regress'
+/usr/bin/install -c  pg_regress '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/test/regress/pg_regress'
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/test/regress»
+make -C test/isolation install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/test/isolation»
+make -C ../../../src/interfaces/libpq all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[5]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[5]: Цель «all» не требует выполнения команд.
+make[5]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/interfaces/libpq»
+make -C ../../../src/port all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/port»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/port»
+make -C ../../../src/common all
+make[4]: вход в каталог «/home/vlad/postgres_cluster/build/src/common»
+make[4]: Цель «all» не требует выполнения команд.
+make[4]: выход из каталога «/home/vlad/postgres_cluster/build/src/common»
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/test/isolation»
+make -C test/perl install
+make[3]: вход в каталог «/home/vlad/postgres_cluster/build/src/test/perl»
+make[3]: Цель «install» не требует выполнения команд.
+make[3]: выход из каталога «/home/vlad/postgres_cluster/build/src/test/perl»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src'
+/usr/bin/install -c -m 644 Makefile.global '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/Makefile.global'
+/usr/bin/install -c -m 644 Makefile.port '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/Makefile.port'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/Makefile.shlib '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/Makefile.shlib'
+/usr/bin/install -c -m 644 /home/vlad/postgres_cluster/build/../src/nls-global.mk '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/src/nls-global.mk'
+make[2]: выход из каталога «/home/vlad/postgres_cluster/build/src»
+make -C config install
+make[2]: вход в каталог «/home/vlad/postgres_cluster/build/config»
+/usr/bin/mkdir -p '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/config'
+/usr/bin/install -c -m 755 /home/vlad/postgres_cluster/build/../config/install-sh '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/config/install-sh'
+/usr/bin/install -c -m 755 /home/vlad/postgres_cluster/build/../config/missing '/home/vlad/postgres_cluster/build/tmp_install/home/vlad/postgres_cluster/pgsql/lib/pgxs/config/missing'
+make[2]: выход из каталога «/home/vlad/postgres_cluster/build/config»
+PostgreSQL installation complete.
+make[1]: выход из каталога «/home/vlad/postgres_cluster/build»
+make[1]: вход в каталог «/home/vlad/postgres_cluster/build/src/test/regress»
+make[1]: Цель «checkprep» не требует выполнения команд.
+make[1]: выход из каталога «/home/vlad/postgres_cluster/build/src/test/regress»

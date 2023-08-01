@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/build/../src/backend/access/rmgrdesc/gistdesc.c

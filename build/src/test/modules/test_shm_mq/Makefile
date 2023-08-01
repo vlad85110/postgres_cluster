@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/src/test/modules/test_shm_mq/Makefile

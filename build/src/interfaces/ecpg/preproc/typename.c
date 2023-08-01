@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/build/../src/interfaces/ecpg/ecpglib/typename.c

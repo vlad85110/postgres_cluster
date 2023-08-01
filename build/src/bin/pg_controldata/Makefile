@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/src/bin/pg_controldata/Makefile

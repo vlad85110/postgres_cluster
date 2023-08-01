@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/src/test/locale/koi8-r/Makefile

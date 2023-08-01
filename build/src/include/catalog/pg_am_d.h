@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/build/src/backend/catalog/pg_am_d.h

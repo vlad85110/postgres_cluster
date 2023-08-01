@@ -1,0 +1,1 @@
+/home/vlad/postgres_cluster/contrib/adminpack/Makefile
