@@ -144,4 +144,5 @@ extern void logicalrep_read_stream_abort(StringInfo in, TransactionId *xid,
 										 TransactionId *subxid);
 
 
+
 #endif							/* LOGICAL_PROTO_H */
