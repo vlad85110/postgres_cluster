@@ -239,6 +239,8 @@ StartupDecodingContext(List *output_plugin_options,
 		(ctx->callbacks.stream_message_cb != NULL) ||
 		(ctx->callbacks.stream_truncate_cb != NULL);
 
+		elog(LOG, "%d", ctx->streaming);
+
 	/*
 	 * streaming callbacks
 	 *
