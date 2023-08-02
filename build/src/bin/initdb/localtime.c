@@ -1,1 +1,0 @@
-/home/vlad/postgres_cluster/build/../src/timezone/localtime.c

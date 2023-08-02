@@ -290,6 +290,14 @@ static Size ReorderBufferChangeSize(ReorderBufferChange *change);
 static void ReorderBufferChangeMemoryUpdate(ReorderBuffer *rb,
 											ReorderBufferChange *change, bool addition);
 
+
+
+static void
+ReorderBufferCommitInternal(ReorderBufferTXN *txn,
+					ReorderBuffer *rb, TransactionId xid,
+					XLogRecPtr commit_lsn, XLogRecPtr end_lsn,
+					TimestampTz commit_time,
+					RepOriginId origin_id, XLogRecPtr origin_lsn);
 /*
  * Allocate a new ReorderBuffer and clean out any old serialized state from
  * prior ReorderBuffer instances for the same slot.
@@ -2395,6 +2403,25 @@ change_cleanuptxn:
  * This interface is called once a toplevel commit is read for both streamed
  * as well as non-streamed transactions.
  */
+/*
+ * Ask output plugin whether we want to skip this PREPARE and send
+ * this transaction as a regular commit later.
+ */
+bool
+ReorderBufferPrepareNeedSkip(ReorderBuffer *rb, TransactionId xid, const char *gid)
+{
+	ReorderBufferTXN *txn;
+
+	txn = ReorderBufferTXNByXid(rb, xid, false, NULL, InvalidXLogRecPtr, false);
+
+	return rb->filter_prepare(rb, txn, xid, gid);
+}
+
+/*
+ * Commit a transaction.
+ *
+ * See comments for ReorderBufferCommitInternal()
+ */
 void
 ReorderBufferCommit(ReorderBuffer *rb, TransactionId xid,
 					XLogRecPtr commit_lsn, XLogRecPtr end_lsn,
@@ -2402,8 +2429,6 @@ ReorderBufferCommit(ReorderBuffer *rb, TransactionId xid,
 					RepOriginId origin_id, XLogRecPtr origin_lsn)
 {
 	ReorderBufferTXN *txn;
-	Snapshot	snapshot_now;
-	CommandId	command_id = FirstCommandId;
 
 	txn = ReorderBufferTXNByXid(rb, xid, false, NULL, InvalidXLogRecPtr,
 								false);
@@ -2412,44 +2437,114 @@ ReorderBufferCommit(ReorderBuffer *rb, TransactionId xid,
 	if (txn == NULL)
 		return;
 
+	ReorderBufferCommitInternal(txn, rb, xid, commit_lsn, end_lsn,
+								commit_time, origin_id, origin_lsn);
+}
+
+/*
+ * Prepare a twophase transaction. It calls ReorderBufferCommitInternal()
+ * since all prepared transactions need to be decoded at PREPARE time.
+ */
+void
+ReorderBufferPrepare(ReorderBuffer *rb, TransactionId xid,
+					XLogRecPtr commit_lsn, XLogRecPtr end_lsn,
+					TimestampTz commit_time,
+					RepOriginId origin_id, XLogRecPtr origin_lsn,
+					char *gid, char *state_3pc)
+{
+	ReorderBufferTXN *txn;
+
+	txn = ReorderBufferTXNByXid(rb, xid, false, NULL, InvalidXLogRecPtr,
+								false);
+
+	/* empty transaction, generate bare prepare record */
+	if (txn == NULL || txn->base_snapshot == NULL)
+	{
+		ReorderBufferTXN txn;
+		txn.xid = xid;
+		txn.first_lsn = commit_lsn;
+		txn.final_lsn = commit_lsn;
+		txn.end_lsn = end_lsn;
+		txn.commit_time = commit_time;
+		txn.origin_id = origin_id;
+		txn.origin_lsn = origin_lsn;
+		strcpy(txn.gid, gid);
+		txn.state_3pc_change = false; /* this is full-blown PREPARE */
+		strcpy(txn.state_3pc, state_3pc);
+		rb->begin(rb, &txn);
+		rb->prepare(rb, &txn, commit_lsn);
+		return;
+	}
+
+	txn->txn_flags |= RBTXN_PREPARE;
+	strcpy(txn->gid, gid);
+	txn->state_3pc_change = false; /* this is full-blown PREPARE */
+	strcpy(txn->state_3pc, state_3pc);
+
+	ReorderBufferCommitInternal(txn, rb, xid, commit_lsn, end_lsn,
+								commit_time, origin_id, origin_lsn);
+}
+
+/*
+ * Check whether this transaction was sent as prepared to subscribers.
+ * Called while handling commit|abort prepared.
+ */
+bool
+ReorderBufferTxnIsPrepared(ReorderBuffer *rb, TransactionId xid,
+						   const char *gid)
+{
+	ReorderBufferTXN *txn;
+
+	txn = ReorderBufferTXNByXid(rb, xid, false, NULL, InvalidXLogRecPtr,
+								false);
+
+	/*
+	 * Always call the prepare filter. It's the job of the prepare
+	 * filter to give us the *same* response for a given xid
+	 * across multiple calls (including ones on restart)
+	 */
+	return !(rb->filter_prepare(rb, txn, xid, gid));
+}
+
+/*
+ * Send standalone xact event. This is used to handle COMMIT/ABORT PREPARED.
+ */
+void
+ReorderBufferFinishPrepared(ReorderBuffer *rb, TransactionId xid,
+					XLogRecPtr commit_lsn, XLogRecPtr end_lsn,
+					TimestampTz commit_time,
+					RepOriginId origin_id, XLogRecPtr origin_lsn,
+					char *gid, bool is_commit)
+{
+	ReorderBufferTXN *txn;
+
+	/*
+	 * The transaction may or may not exist (during restarts for
+	 * example). Anyways, 2PC transactions do not contain any
+	 * reorderbuffers. So allow it to be created below.
+	 */
+	txn = ReorderBufferTXNByXid(rb, xid, true, NULL, commit_lsn,
+								true);
+
 	txn->final_lsn = commit_lsn;
 	txn->end_lsn = end_lsn;
 	txn->commit_time = commit_time;
 	txn->origin_id = origin_id;
 	txn->origin_lsn = origin_lsn;
+	strcpy(txn->gid, gid);
 
-	/*
-	 * If the transaction was (partially) streamed, we need to commit it in a
-	 * 'streamed' way. That is, we first stream the remaining part of the
-	 * transaction, and then invoke stream_commit message.
-	 *
-	 * Called after everything (origin ID, LSN, ...) is stored in the
-	 * transaction to avoid passing that information directly.
-	 */
-	if (rbtxn_is_streamed(txn))
+	if (is_commit)
 	{
-		ReorderBufferStreamCommit(rb, txn);
-		return;
+		rb->commit_prepared(rb, txn, commit_lsn);
+	}
+	else
+	{
+		rb->abort_prepared(rb, txn, commit_lsn);
 	}
 
-	/*
-	 * If this transaction has no snapshot, it didn't make any changes to the
-	 * database, so there's nothing to decode.  Note that
-	 * ReorderBufferCommitChild will have transferred any snapshots from
-	 * subtransactions if there were any.
-	 */
-	if (txn->base_snapshot == NULL)
-	{
-		Assert(txn->ninvalidations == 0);
-		ReorderBufferCleanupTXN(rb, txn);
-		return;
-	}
-
-	snapshot_now = txn->base_snapshot;
-
-	/* Process and send the changes to output plugin. */
-	ReorderBufferProcessTXN(rb, txn, commit_lsn, snapshot_now,
-							command_id, false);
+	/* cleanup: make sure there's no cache pollution */
+	ReorderBufferExecuteInvalidations(rb, txn);
+	ReorderBufferCleanupTXN(rb, txn);
 }
 
 /*
@@ -4632,3 +4727,462 @@ restart:
 		*cmax = ent->cmax;
 	return true;
 }
+
+static void
+ReorderBufferCommitInternal(ReorderBufferTXN *txn,
+					ReorderBuffer *rb, TransactionId xid,
+					XLogRecPtr commit_lsn, XLogRecPtr end_lsn,
+					TimestampTz commit_time,
+					RepOriginId origin_id, XLogRecPtr origin_lsn)
+{
+	volatile Snapshot snapshot_now;
+	volatile CommandId command_id = FirstCommandId;
+	bool		using_subtxn;
+	ReorderBufferIterTXNState *volatile iterstate = NULL;
+
+	txn->final_lsn = commit_lsn;
+	txn->end_lsn = end_lsn;
+	txn->commit_time = commit_time;
+	txn->origin_id = origin_id;
+	txn->origin_lsn = origin_lsn;
+
+	/*
+	 * If this transaction has no snapshot, it didn't make any changes to the
+	 * database, so there's nothing to decode.  Note that
+	 * ReorderBufferCommitChild will have transferred any snapshots from
+	 * subtransactions if there were any.
+	 */
+	if (txn->base_snapshot == NULL)
+	{
+		Assert(txn->ninvalidations == 0);
+		ReorderBufferCleanupTXN(rb, txn);
+		return;
+	}
+
+	snapshot_now = txn->base_snapshot;
+
+	/* build data to be able to lookup the CommandIds of catalog tuples */
+	ReorderBufferBuildTupleCidHash(rb, txn);
+
+	/* setup the initial snapshot */
+	SetupHistoricSnapshot(snapshot_now, txn->tuplecid_hash);
+
+	/*
+	 * Decoding needs access to syscaches et al., which in turn use
+	 * heavyweight locks and such. Thus we need to have enough state around to
+	 * keep track of those.  The easiest way is to simply use a transaction
+	 * internally.  That also allows us to easily enforce that nothing writes
+	 * to the database by checking for xid assignments.
+	 *
+	 * When we're called via the SQL SRF there's already a transaction
+	 * started, so start an explicit subtransaction there.
+	 */
+	using_subtxn = IsTransactionOrTransactionBlock();
+
+	PG_TRY();
+	{
+		ReorderBufferChange *change;
+		ReorderBufferChange *specinsert = NULL;
+		bool				 change_cleanup = false;
+		bool				 check_txn_status;
+		bool				 is_prepared = txn_prepared(txn);
+
+		/*
+		 * check for the xid once to see if it's already
+		 * committed. Otherwise we need to consult the
+		 * decode_txn filter function to enquire if it's
+		 * still ok for us to continue to decode this xid
+		 *
+		 * This is to handle cases of concurrent abort
+		 * happening parallel to the decode activity
+		 */
+		check_txn_status = TransactionIdDidCommit(txn->xid)?
+								false : true;
+
+		if (using_subtxn)
+			BeginInternalSubTransaction("replay");
+		else
+			StartTransactionCommand();
+
+		rb->begin(rb, txn);
+
+		ReorderBufferIterTXNInit(rb, txn, &iterstate);
+		while ((change = ReorderBufferIterTXNNext(rb, iterstate)) != NULL)
+		{
+			Relation	relation = NULL;
+			Oid			reloid;
+
+			/*
+			 * While decoding 2PC or while streaming uncommitted
+			 * transactions, check if this transaction needs to
+			 * be still decoded. If the transaction got aborted
+			 * or if we were instructed to stop decoding, then
+			 * bail out early.
+			 */
+			if (check_txn_status && TransactionIdDidAbort(txn->xid))
+			{
+				elog(LOG, "stopping decoding of %s (" XID_FMT ")",
+					 (is_prepared ? txn->gid : ""), txn->xid);
+				change_cleanup = true;
+				goto change_cleanuptxn;
+			}
+
+			switch (change->action)
+			{
+				case REORDER_BUFFER_CHANGE_INTERNAL_SPEC_CONFIRM:
+
+					/*
+					 * Confirmation for speculative insertion arrived. Simply
+					 * use as a normal record. It'll be cleaned up at the end
+					 * of INSERT processing.
+					 */
+					if (specinsert == NULL)
+						elog(ERROR, "invalid ordering of speculative insertion changes");
+					Assert(specinsert->data.tp.oldtuple == NULL);
+					change = specinsert;
+					change->action = REORDER_BUFFER_CHANGE_INSERT;
+
+					/* intentionally fall through */
+				case REORDER_BUFFER_CHANGE_INSERT:
+				case REORDER_BUFFER_CHANGE_UPDATE:
+				case REORDER_BUFFER_CHANGE_DELETE:
+					Assert(snapshot_now);
+
+					reloid = RelidByRelfilenode(change->data.tp.relnode.spcNode,
+												change->data.tp.relnode.relNode);
+
+					/*
+					 * Mapped catalog tuple without data, emitted while
+					 * catalog table was in the process of being rewritten. We
+					 * can fail to look up the relfilenode, because the
+					 * relmapper has no "historic" view, in contrast to normal
+					 * the normal catalog during decoding. Thus repeated
+					 * rewrites can cause a lookup failure. That's OK because
+					 * we do not decode catalog changes anyway. Normally such
+					 * tuples would be skipped over below, but we can't
+					 * identify whether the table should be logically logged
+					 * without mapping the relfilenode to the oid.
+					 */
+					if (reloid == InvalidOid &&
+						change->data.tp.newtuple == NULL &&
+						change->data.tp.oldtuple == NULL)
+						goto change_done;
+					else if (reloid == InvalidOid)
+						elog(ERROR, "could not map filenode \"%s\" to relation OID",
+							 relpathperm(change->data.tp.relnode,
+										 MAIN_FORKNUM));
+
+					relation = RelationIdGetRelation(reloid);
+
+					if (!RelationIsValid(relation))
+						elog(ERROR, "could not open relation with OID %u (for filenode \"%s\")",
+							 reloid,
+							 relpathperm(change->data.tp.relnode,
+										 MAIN_FORKNUM));
+
+					if (!RelationIsLogicallyLogged(relation))
+						goto change_done;
+
+					/*
+					 * Ignore temporary heaps created during DDL unless the
+					 * plugin has asked for them.
+					 */
+					if (relation->rd_rel->relrewrite && !rb->output_rewrites)
+						goto change_done;
+
+					/*
+					 * For now ignore sequence changes entirely. Most of the
+					 * time they don't log changes using records we
+					 * understand, so it doesn't make sense to handle the few
+					 * cases we do.
+					 */
+					if (relation->rd_rel->relkind == RELKIND_SEQUENCE)
+						goto change_done;
+
+					/* user-triggered change */
+					if (!IsToastRelation(relation))
+					{
+						ReorderBufferToastReplace(rb, txn, relation, change);
+						rb->apply_change(rb, txn, relation, change);
+
+						/*
+						 * Only clear reassembled toast chunks if we're sure
+						 * they're not required anymore. The creator of the
+						 * tuple tells us.
+						 */
+						if (change->data.tp.clear_toast_afterwards)
+							ReorderBufferToastReset(rb, txn);
+					}
+					/* we're not interested in toast deletions */
+					else if (change->action == REORDER_BUFFER_CHANGE_INSERT)
+					{
+						/*
+						 * Need to reassemble the full toasted Datum in
+						 * memory, to ensure the chunks don't get reused till
+						 * we're done remove it from the list of this
+						 * transaction's changes. Otherwise it will get
+						 * freed/reused while restoring spooled data from
+						 * disk.
+						 */
+						Assert(change->data.tp.newtuple != NULL);
+
+						dlist_delete(&change->node);
+						ReorderBufferToastAppendChunk(rb, txn, relation,
+													  change);
+					}
+
+			change_done:
+
+					/*
+					 * Either speculative insertion was confirmed, or it was
+					 * unsuccessful and the record isn't needed anymore.
+					 */
+					if (specinsert != NULL)
+					{
+						ReorderBufferReturnChange(rb, specinsert, false);
+						specinsert = NULL;
+					}
+
+					if (relation != NULL)
+					{
+						RelationClose(relation);
+						relation = NULL;
+					}
+					break;
+
+				case REORDER_BUFFER_CHANGE_INTERNAL_SPEC_INSERT:
+
+					/*
+					 * Speculative insertions are dealt with by delaying the
+					 * processing of the insert until the confirmation record
+					 * arrives. For that we simply unlink the record from the
+					 * chain, so it does not get freed/reused while restoring
+					 * spooled data from disk.
+					 *
+					 * This is safe in the face of concurrent catalog changes
+					 * because the relevant relation can't be changed between
+					 * speculative insertion and confirmation due to
+					 * CheckTableNotInUse() and locking.
+					 */
+
+					/* clear out a pending (and thus failed) speculation */
+					if (specinsert != NULL)
+					{
+						ReorderBufferReturnChange(rb, specinsert, false);
+						specinsert = NULL;
+					}
+
+					/* and memorize the pending insertion */
+					dlist_delete(&change->node);
+					specinsert = change;
+					break;
+
+				case REORDER_BUFFER_CHANGE_TRUNCATE:
+					{
+						int			i;
+						int			nrelids = change->data.truncate.nrelids;
+						int			nrelations = 0;
+						Relation   *relations;
+
+						relations = palloc0(nrelids * sizeof(Relation));
+						for (i = 0; i < nrelids; i++)
+						{
+							Oid			relid = change->data.truncate.relids[i];
+							Relation	relation;
+
+							relation = RelationIdGetRelation(relid);
+
+							if (!RelationIsValid(relation))
+								elog(ERROR, "could not open relation with OID %u", relid);
+
+							if (!RelationIsLogicallyLogged(relation))
+								continue;
+
+							relations[nrelations++] = relation;
+						}
+
+						rb->apply_truncate(rb, txn, nrelations, relations, change);
+
+						for (i = 0; i < nrelations; i++)
+							RelationClose(relations[i]);
+
+						break;
+					}
+
+				case REORDER_BUFFER_CHANGE_MESSAGE:
+					rb->message(rb, txn, change->lsn, true,
+								change->data.msg.prefix,
+								change->data.msg.message_size,
+								change->data.msg.message);
+					break;
+
+				case REORDER_BUFFER_CHANGE_INTERNAL_SNAPSHOT:
+					/* get rid of the old */
+					TeardownHistoricSnapshot(false);
+
+					if (snapshot_now->copied)
+					{
+						ReorderBufferFreeSnap(rb, snapshot_now);
+						snapshot_now =
+							ReorderBufferCopySnap(rb, change->data.snapshot,
+												  txn, command_id);
+					}
+
+					/*
+					 * Restored from disk, need to be careful not to double
+					 * free. We could introduce refcounting for that, but for
+					 * now this seems infrequent enough not to care.
+					 */
+					else if (change->data.snapshot->copied)
+					{
+						snapshot_now =
+							ReorderBufferCopySnap(rb, change->data.snapshot,
+												  txn, command_id);
+					}
+					else
+					{
+						snapshot_now = change->data.snapshot;
+					}
+
+
+					/* and continue with the new one */
+					SetupHistoricSnapshot(snapshot_now, txn->tuplecid_hash);
+					break;
+
+				case REORDER_BUFFER_CHANGE_INTERNAL_COMMAND_ID:
+					Assert(change->data.command_id != InvalidCommandId);
+
+					if (command_id < change->data.command_id)
+					{
+						command_id = change->data.command_id;
+
+						if (!snapshot_now->copied)
+						{
+							/* we don't use the global one anymore */
+							snapshot_now = ReorderBufferCopySnap(rb, snapshot_now,
+																 txn, command_id);
+						}
+
+						snapshot_now->curcid = command_id;
+
+						TeardownHistoricSnapshot(false);
+						SetupHistoricSnapshot(snapshot_now, txn->tuplecid_hash);
+
+						/*
+						 * Every time the CommandId is incremented, we could
+						 * see new catalog contents, so execute all
+						 * invalidations.
+						 */
+						ReorderBufferExecuteInvalidations(rb, txn);
+					}
+
+					break;
+
+				case REORDER_BUFFER_CHANGE_INTERNAL_TUPLECID:
+					elog(ERROR, "tuplecid value in changequeue");
+					break;
+			}
+		}
+
+change_cleanuptxn:
+		/*
+		 * There's a speculative insertion remaining, just clean in up, it
+		 * can't have been successful, otherwise we'd gotten a confirmation
+		 * record.
+		 */
+		if (specinsert)
+		{
+			ReorderBufferReturnChange(rb, specinsert, false);
+			specinsert = NULL;
+		}
+
+		/* clean up the iterator */
+		ReorderBufferIterTXNFinish(rb, iterstate);
+		iterstate = NULL;
+
+		if (change_cleanup)
+			rb->abort(rb, txn, commit_lsn);
+		else if (txn_prepared(txn))
+			rb->prepare(rb, txn, commit_lsn);
+		else
+			rb->commit(rb, txn, commit_lsn);
+
+		/* this is just a sanity check against bad output plugin behaviour */
+		if (GetCurrentTransactionIdIfAny() != InvalidTransactionId)
+			elog(ERROR, "output plugin used XID %u",
+				 GetCurrentTransactionId());
+
+		/* cleanup */
+		TeardownHistoricSnapshot(false);
+
+		/*
+		 * Aborting the current (sub-)transaction as a whole has the right
+		 * semantics. We want all locks acquired in here to be released, not
+		 * reassigned to the parent and we do not want any database access
+		 * have persistent effects.
+		 */
+		AbortCurrentTransaction();
+
+		/* make sure there's no cache pollution */
+		ReorderBufferExecuteInvalidations(rb, txn);
+
+		if (using_subtxn)
+			RollbackAndReleaseCurrentSubTransaction();
+
+		if (snapshot_now->copied)
+			ReorderBufferFreeSnap(rb, snapshot_now);
+
+		/*
+		 * remove potential on-disk data, and deallocate.
+		 *
+		 * We remove it even for prepared transactions.
+		 * This is because the COMMIT PREPARED needs
+		 * no data post the successful PREPARE
+		 */
+		ReorderBufferCleanupTXN(rb, txn);
+	}
+	PG_CATCH();
+	{
+		/* TODO: Encapsulate cleanup from the PG_TRY and PG_CATCH blocks */
+		if (iterstate)
+			ReorderBufferIterTXNFinish(rb, iterstate);
+
+		TeardownHistoricSnapshot(true);
+
+		/*
+		 * Force cache invalidation to happen outside of a valid transaction
+		 * to prevent catalog access as we just caught an error.
+		 */
+		AbortCurrentTransaction();
+
+		/* make sure there's no cache pollution */
+		ReorderBufferExecuteInvalidations(rb, txn);
+
+		if (using_subtxn)
+			RollbackAndReleaseCurrentSubTransaction();
+
+		if (snapshot_now->copied)
+			ReorderBufferFreeSnap(rb, snapshot_now);
+
+		/* remove potential on-disk data, and deallocate */
+		ReorderBufferCleanupTXN(rb, txn);
+
+		PG_RE_THROW();
+	}
+	PG_END_TRY();
+}
+
+/*
+ * Ask output plugin whether we want to skip this PREPARE and send
+ * this transaction as a regular commit later.
+ */
+// bool
+// ReorderBufferPrepareNeedSkip(ReorderBuffer *rb, TransactionId xid, const char *gid)
+// {
+// 	ReorderBufferTXN *txn;
+
+// 	txn = ReorderBufferTXNByXid(rb, xid, false, NULL, InvalidXLogRecPtr, false);
+
+// 	return rb->filter_prepare(rb, txn, xid, gid);
+// }
+
