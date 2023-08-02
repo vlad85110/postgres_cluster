@@ -4221,6 +4221,7 @@ getSubscriptions(Archive *fout)
 	int			i_subconninfo;
 	int			i_subslotname;
 	int			i_subsynccommit;
+	int			i_subbinary;
 	int			i_subpublications;
 	int			i,
 				ntups;

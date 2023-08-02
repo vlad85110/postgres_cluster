@@ -501,6 +501,7 @@ pgoutput_change(LogicalDecodingContext *ctx, ReorderBufferTXN *txn,
 	MemoryContext old;
 	RelationSyncEntry *relentry;
 	TransactionId xid = InvalidTransactionId;
+	Relation	ancestor = NULL;
 
 	if (!is_publishable_relation(relation))
 		return;

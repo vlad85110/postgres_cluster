@@ -214,9 +214,11 @@
 { 6100, {"subname"}, 19, -1, NAMEDATALEN, 3, 0, -1, -1, false, 'p', 'c', true, false, false, '\0', '\0', false, true, 0, 950 }, \
 { 6100, {"subowner"}, 26, -1, 4, 4, 0, -1, -1, true, 'p', 'i', true, false, false, '\0', '\0', false, true, 0, 0 }, \
 { 6100, {"subenabled"}, 16, -1, 1, 5, 0, -1, -1, true, 'p', 'c', true, false, false, '\0', '\0', false, true, 0, 0 }, \
-{ 6100, {"subconninfo"}, 25, -1, -1, 6, 0, -1, -1, false, 'x', 'i', true, false, false, '\0', '\0', false, true, 0, 950 }, \
-{ 6100, {"subslotname"}, 19, -1, NAMEDATALEN, 7, 0, -1, -1, false, 'p', 'c', false, false, false, '\0', '\0', false, true, 0, 950 }, \
-{ 6100, {"subsynccommit"}, 25, -1, -1, 8, 0, -1, -1, false, 'x', 'i', true, false, false, '\0', '\0', false, true, 0, 950 }, \
-{ 6100, {"subpublications"}, 1009, -1, -1, 9, 1, -1, -1, false, 'x', 'i', true, false, false, '\0', '\0', false, true, 0, 950 }
+{ 6100, {"subbinary"}, 16, -1, 1, 6, 0, -1, -1, true, 'p', 'c', true, false, false, '\0', '\0', false, true, 0, 0 }, \
+{ 6100, {"substream"}, 16, -1, 1, 7, 0, -1, -1, true, 'p', 'c', true, false, false, '\0', '\0', false, true, 0, 0 }, \
+{ 6100, {"subconninfo"}, 25, -1, -1, 8, 0, -1, -1, false, 'x', 'i', true, false, false, '\0', '\0', false, true, 0, 950 }, \
+{ 6100, {"subslotname"}, 19, -1, NAMEDATALEN, 9, 0, -1, -1, false, 'p', 'c', false, false, false, '\0', '\0', false, true, 0, 950 }, \
+{ 6100, {"subsynccommit"}, 25, -1, -1, 10, 0, -1, -1, false, 'x', 'i', true, false, false, '\0', '\0', false, true, 0, 950 }, \
+{ 6100, {"subpublications"}, 1009, -1, -1, 11, 1, -1, -1, false, 'x', 'i', true, false, false, '\0', '\0', false, true, 0, 950 }
 
 #endif							/* SCHEMAPG_H */

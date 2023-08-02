@@ -357,6 +357,8 @@ CreateSubscription(CreateSubscriptionStmt *stmt, bool isTopLevel)
 	char	   *conninfo;
 	char	   *slotname;
 	bool		slotname_given;
+	bool		binary;
+	bool		binary_given;
 	char		originname[NAMEDATALEN];
 	bool		create_slot;
 	List	   *publications;

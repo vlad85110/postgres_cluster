@@ -10265,6 +10265,8 @@ create pg_subscription 6100 shared_relation rowtype_oid 6101
  subname = name ,
  subowner = oid ,
  subenabled = bool ,
+ subbinary = bool ,
+ substream = bool ,
  subconninfo = text FORCE NOT NULL ,
  subslotname = name FORCE NULL ,
  subsynccommit = text FORCE NOT NULL ,

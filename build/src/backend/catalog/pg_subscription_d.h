@@ -26,12 +26,14 @@
 #define Anum_pg_subscription_subname 3
 #define Anum_pg_subscription_subowner 4
 #define Anum_pg_subscription_subenabled 5
-#define Anum_pg_subscription_subconninfo 6
-#define Anum_pg_subscription_subslotname 7
-#define Anum_pg_subscription_subsynccommit 8
-#define Anum_pg_subscription_subpublications 9
+#define Anum_pg_subscription_subbinary 6
+#define Anum_pg_subscription_substream 7
+#define Anum_pg_subscription_subconninfo 8
+#define Anum_pg_subscription_subslotname 9
+#define Anum_pg_subscription_subsynccommit 10
+#define Anum_pg_subscription_subpublications 11
 
-#define Natts_pg_subscription 9
+#define Natts_pg_subscription 11
 
 
 #endif							/* PG_SUBSCRIPTION_D_H */

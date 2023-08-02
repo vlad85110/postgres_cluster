@@ -34,13 +34,27 @@
 /* Tuple coming via logical replication. */
 typedef struct LogicalRepTupleData
 {
-	/* column values in text format, or NULL for a null value: */
-	char	   *values[MaxTupleAttributeNumber];
-	/* markers for changed/unchanged column values: */
-	bool		changed[MaxTupleAttributeNumber];
+	// /* column values in text format, or NULL for a null value: */
+	// char	   *values[MaxTupleAttributeNumber];
+	// /* markers for changed/unchanged column values: */
+	// bool		changed[MaxTupleAttributeNumber];
+
+/* Array of StringInfos, one per column; some may be unused */
+	StringInfoData *colvalues;
+	/* Array of markers for null/unchanged/text/binary, one per column */
+	char	   *colstatus;
+	/* Length of above arrays */
+	int			ncols;
+
 } LogicalRepTupleData;
 
 typedef uint32 LogicalRepRelId;
+
+// typedef enum 
+#define LOGICALREP_COLUMN_NULL		'n'
+#define LOGICALREP_COLUMN_UNCHANGED	'u'
+#define LOGICALREP_COLUMN_TEXT		't'
+#define LOGICALREP_COLUMN_BINARY	'b' /* added in PG14 */
 
 /* Relation information */
 typedef struct LogicalRepRelation
