@@ -3121,7 +3121,8 @@ ReorderBufferCheckMemoryLimit(ReorderBuffer *rb)
 	 * change.
 	 */
 	while (rb->size >= logical_decoding_work_mem * 1024L)
-	{
+	{	
+
 		/*
 		 * Pick the largest transaction (or subtransaction) and evict it from
 		 * memory by streaming, if possible.  Otherwise, spill to disk.
@@ -3134,6 +3135,7 @@ ReorderBufferCheckMemoryLimit(ReorderBuffer *rb)
 			Assert(txn->total_size > 0);
 			Assert(rb->size >= txn->total_size);
 
+			// elog(LOG, "stream");
 			ReorderBufferStreamTXN(rb, txn);
 		}
 		else

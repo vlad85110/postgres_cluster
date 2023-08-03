@@ -272,7 +272,7 @@ pgoutput_startup(LogicalDecodingContext *ctx, OutputPluginOptions *opt,
 								&enable_streaming);
 
 		/* Check if we support requested protocol */
-		if (data->protocol_version > LOGICALREP_PROTO_VERSION_NUM)
+		if (data->protocol_version > 2 /*LOGICALREP_PROTO_VERSION_NUM*/)
 			ereport(ERROR,
 					(errcode(ERRCODE_FEATURE_NOT_SUPPORTED),
 					 errmsg("client sent proto_version=%d but we only support protocol %d or lower",
@@ -338,6 +338,8 @@ pgoutput_begin_txn(LogicalDecodingContext *ctx, ReorderBufferTXN *txn)
 	OutputPluginPrepareWrite(ctx, !send_replication_origin);
 	logicalrep_write_begin(ctx->out, txn);
 
+	elog(LOG, "begin_cb");
+
 	if (send_replication_origin)
 	{
 		char	   *origin;
@@ -375,6 +377,8 @@ pgoutput_commit_txn(LogicalDecodingContext *ctx, ReorderBufferTXN *txn,
 	OutputPluginPrepareWrite(ctx, true);
 	logicalrep_write_commit(ctx->out, txn, commit_lsn);
 	OutputPluginWrite(ctx, true);
+
+	elog(LOG, "commit_cb");
 }
 
 /*
